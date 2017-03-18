@@ -50,7 +50,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'font-awesome-sass'
 gem 'ionicons-rails'
 gem 'chartkick'
-gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 
