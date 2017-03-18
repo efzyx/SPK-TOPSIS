@@ -1,0 +1,1 @@
+json.array! @rangkings, partial: 'rangkings/rangking', as: :rangking

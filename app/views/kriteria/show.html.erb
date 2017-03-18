@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nama:</strong>
+  <%= @kriterium.nama %>
+</p>
+
+<p>
+  <strong>Tipe:</strong>
+  <%= @kriterium.tipe %>
+</p>
+
+<p>
+  <strong>Bobot:</strong>
+  <%= @kriterium.bobot %>
+</p>
+
+<%= link_to 'Edit', edit_kriterium_path(@kriterium) %> |
+<%= link_to 'Back', kriteria_path %>

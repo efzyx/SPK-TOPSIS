@@ -1,0 +1,1 @@
+json.partial! "rangkings/rangking", rangking: @rangking

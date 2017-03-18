@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<%no=1%>
+<section class="content-header">
+  <h1>
+    List
+    <small>Alternatif</small>
+  </h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+          <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nama alternatif</th>
+                    <th colspan="2">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @alternatifs.each do |alternatif| %>
+                    <tr>
+                      <td><%= no %></td>
+                      <td><%= alternatif.nama_alternatif %></td>
+                      <td><%= link_to '<i class = "fa fa-edit"></i>'.html_safe, edit_alternatif_path(alternatif) %></td>
+                      <td><%= link_to '<i class = "fa fa-trash"></i>'.html_safe, alternatif, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% no=no+1 %>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+      </div>
+    </div>
+  </div>
+</section>

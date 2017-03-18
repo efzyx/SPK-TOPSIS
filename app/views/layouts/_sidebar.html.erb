@@ -1,0 +1,64 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">MAIN NAVIGATION</li>
+      <li class="<%= 'active' if controller?('welcome')%> treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= 'active' if controller?('welcome') && action?('diagram')%>"><%= link_to '<i class="fa fa-circle-o"></i>Diagram'.html_safe, root_path %></li>
+          <li class="<%= 'active' if controller?('welcome') && action?('tables')%>"><%= link_to '<i class="fa fa-circle-o"></i>Table Analisis'.html_safe, welcome_tables_path %></li>
+        </ul>
+      </li>
+
+      <li class="<%= 'active' if controller?('alternatifs')%> treeview">
+        <a href="#">
+          <i class="fa fa-database"></i> <span>Alternatif</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= 'active' if controller?('alternatifs') && action?('index', 'edit')%>"><%= link_to '<i class="fa fa-circle-o"></i>List Alternatif'.html_safe, alternatifs_path %></li>
+          <li class="<%= 'active' if controller?('alternatifs') && action?('new')%>"><%= link_to '<i class="fa fa-circle-o"></i>Tambah'.html_safe, new_alternatif_path %></li>
+        </ul>
+      </li>
+
+      <li class="<%= 'active' if controller?('kriteria')%> treeview">
+        <a href="#">
+          <i class="fa fa-database"></i> <span>Kriteria</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= 'active' if controller?('kriteria') && action?('index', 'edit')%>"><%= link_to '<i class="fa fa-circle-o"></i>List Kriteria'.html_safe, kriteria_path %></li>
+          <li class="<%= 'active' if controller?('kriteria') && action?('new')%>"><%= link_to '<i class="fa fa-circle-o"></i>Tambah'.html_safe, new_kriterium_path %></li>
+        </ul>
+      </li>
+
+
+      <li class="<%= 'active' if controller?('rangkings')%> treeview">
+        <a href="#">
+          <i class="fa fa-percent"></i> <span>Rangking</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= 'active' if controller?('rangkings') && action?('index', 'edit')%>"><%= link_to '<i class="fa fa-circle-o"></i>List Rangking'.html_safe, rangkings_path %></li>
+          <li class="<%= 'active' if controller?('rangkings') && action?('new')%>"><%= link_to '<i class="fa fa-circle-o"></i>Tambah'.html_safe, new_rangking_path %></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

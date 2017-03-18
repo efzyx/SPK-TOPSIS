@@ -1,0 +1,22 @@
+<section class="content-header">
+<h1>Tambah
+<small>Kriteria</small></h1>
+<%if (notice != nil)%>
+<div class="alert alert-success">
+  <%= notice %>
+</div>
+<% end %>
+<% @url = kriteria_url %>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-body">
+          <%= render 'form', kriterium: @kriterium %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

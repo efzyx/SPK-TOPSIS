@@ -1,0 +1,2 @@
+module AlternatifsHelper
+end

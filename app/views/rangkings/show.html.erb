@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alternatif:</strong>
+  <%= @rangking.alternatif %>
+</p>
+
+<p>
+  <strong>Kriteria:</strong>
+  <%= @rangking.kriteria %>
+</p>
+
+<p>
+  <strong>Nilai:</strong>
+  <%= @rangking.nilai %>
+</p>
+
+<%= link_to 'Edit', edit_rangking_path(@rangking) %> |
+<%= link_to 'Back', rangkings_path %>

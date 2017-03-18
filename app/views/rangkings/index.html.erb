@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<% no=1 %>
+<section class="content-header">
+  <h1>
+    List
+    <small>Rangking</small>
+  </h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+          <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Alternatif</th>
+                    <th>Kriteria</th>
+                    <th>Nilai</th>
+                    <th colspan="2">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @rangkings.each do |rangking| %>
+                    <tr>
+                      <td><%= no %></td>
+                      <td><%= rangking.alternatif.nama_alternatif %></td>
+                      <td><%= rangking.kriteria.nama %></td>
+                      <td><%= rangking.nilai %></td>
+                      <td><%= link_to '<i class = "fa fa-edit"></i>'.html_safe, edit_rangking_path(rangking) %></td>
+                      <td><%= link_to '<i class = "fa fa-trash"></i>'.html_safe, rangking, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+                      </tr>
+                  <% no=no+1 %>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+      </div>
+    </div>
+  </div>
+</section>

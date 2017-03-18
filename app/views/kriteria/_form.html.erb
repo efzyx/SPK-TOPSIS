@@ -1,0 +1,41 @@
+
+<%= form_for @kriterium, :html => {:class => "form-horizontal form-label-left"} do |f| %>
+  <% if kriterium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kriterium.errors.count, "error") %> prohibited this kriterium from being saved:</h2>
+
+      <ul>
+      <% kriterium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :nama, "Nama Kriteria :", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= f.text_field :nama, class: "form-control" %>
+      </div>
+  </div>
+  <div class="ln_solid"></div>
+  <div class="form-group">
+    <%= f.label :tipe, "Tipe :", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= f.select :tipe, options_for_select("Benefit"=>1, "Cost"=>0),{}, class: "form-control" %>
+      </div>
+  </div>
+  <div class="ln_solid"></div>
+  <div class="form-group">
+    <%= f.label :bobot, "Bobot :", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= f.number_field :bobot, class: "form-control", :step => 0.001 %>
+      </div>
+  </div>
+  <div class="ln_solid"></div>
+  <div class="form-group">
+    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+      <%= f.submit "Simpan", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+      <button type="button" value="Kembali" class="btn btn-default" onclick="window.location.href='<%= @url %> '">Kembali</button>

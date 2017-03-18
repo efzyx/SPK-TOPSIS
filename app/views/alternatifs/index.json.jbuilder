@@ -1,0 +1,1 @@
+json.array! @alternatifs, partial: 'alternatifs/alternatif', as: :alternatif
