@@ -1,12 +1,20 @@
 class WelcomeController < ApplicationController
   require 'matrix'
+  before_action :cekData
+
+  def error
+  end
 
   def tables
-    @rangeAlternatif = countRangeAlternatif
-    @rangeKriteria = countRangeKriteria
-    @rangking = getAllRangkings
+
     @alternatif = getAllAlternatifs
     @kriteria = getAllKriterias
+    @rangking = getAllRangkings
+
+
+
+    @rangeAlternatif = countRangeAlternatif
+    @rangeKriteria = countRangeKriteria
     @X = getX
     @R = getR
     @Y = getY
@@ -28,6 +36,11 @@ class WelcomeController < ApplicationController
 
   private
 
+    def cekData
+      if Alternatif.first == nil or Kriterium.first == nil or Rangking.first == nil then
+          redirect_to error_path
+      end
+    end
     def getRangkingByKriteriaId(id)
       return Rangking.where(kriteria_id: id)
     end

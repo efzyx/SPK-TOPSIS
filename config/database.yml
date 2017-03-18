@@ -26,7 +26,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: spk-topsis_test
+  database: Tugas_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: spk-topsis_production
-  username: spk-topsis
-  password: <%= ENV['SPK-TOPSIS_DATABASE_PASSWORD'] %>
+  database: Tugas_production
+  username: Tugas
+  password: <%= ENV['TUGAS_DATABASE_PASSWORD'] %>

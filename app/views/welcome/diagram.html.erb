@@ -7,6 +7,7 @@
 <% ra = @rangeAlternatif %>
 <% rk = @rangeKriteria %>
 <!-- Main content -->
+
 <section class="content">
   <!-- Small boxes (Stat box) -->
   <div class="row">
@@ -50,8 +51,11 @@
       <!-- small box -->
       <div class="small-box bg-red">
         <div class="inner">
+          <% begin %>
           <h3><%= @alternatif[@V.each_with_index.max[1]].nama_alternatif %></h3>
-
+          <% rescue %>
+          <h3>Belum ada</h3>
+          <% end %>
           <p>Alternatif Terbaik</p>
         </div>
         <a href="<%= welcome_tables_url %>" class="small-box-footer">Analisis <i class="fa fa-arrow-circle-right"></i></a>
@@ -119,3 +123,4 @@
     </div>
 </div>
   <!-- ./box-body -->
+</section>
