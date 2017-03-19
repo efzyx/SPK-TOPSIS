@@ -1,6 +1,7 @@
 class RangkingsController < ApplicationController
  before_action :set_rangking, only: [:show, :edit, :update, :destroy]
  before_action :cekData, only: [:index, :edit]
+ before_action :disableCRUD, only: [:new, :create, :edit, :update, :destroy]
 
  def index
    @rangkings = Rangking.all
@@ -68,5 +69,9 @@ class RangkingsController < ApplicationController
       rescue
         redirect_to error_path
       end
+    end
+    
+    def disableCRUD
+      redirect_to rangkings_path, notice: 'Read only mode, mohon maaf :D'
     end
 end
