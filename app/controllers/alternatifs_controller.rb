@@ -1,6 +1,6 @@
 class AlternatifsController < ApplicationController
   before_action :set_alternatif, only: [:show, :edit, :update, :destroy]
-
+  before_action :cekData, only: [:index, :edit]
   def index
     @alternatifs = Alternatif.all
   end
@@ -56,5 +56,15 @@ class AlternatifsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def alternatif_params
       params.require(:alternatif).permit(:nama_alternatif)
+    end
+    
+    def cekData
+      begin 
+        if Alternatif.first == nil
+          redirect_to error_path
+        end
+      rescue
+        redirect_to error_path
+      end
     end
 end

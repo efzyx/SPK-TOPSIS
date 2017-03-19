@@ -1,6 +1,6 @@
 class RangkingsController < ApplicationController
  before_action :set_rangking, only: [:show, :edit, :update, :destroy]
-
+ before_action :cekData, only: [:index, :edit]
 
  def index
    @rangkings = Rangking.all
@@ -59,4 +59,14 @@ class RangkingsController < ApplicationController
    def rangking_params
      params.require(:rangking).permit(:alternatif_id, :kriteria_id, :nilai)
    end
+   
+    def cekData
+      begin 
+        if Rangking.first == nil
+          redirect_to error_path
+        end
+      rescue
+        redirect_to error_path
+      end
+    end
 end

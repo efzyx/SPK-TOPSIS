@@ -37,8 +37,12 @@ class WelcomeController < ApplicationController
   private
 
     def cekData
-      if Alternatif.first == nil or Kriterium.first == nil or Rangking.first == nil then
+      begin 
+        if Alternatif.first == nil or Kriterium.first == nil or Rangking.first == nil then
           redirect_to error_path
+        end
+      rescue
+        redirect_to error_path
       end
     end
     def getRangkingByKriteriaId(id)

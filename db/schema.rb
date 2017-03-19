@@ -10,28 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314081306) do
+ActiveRecord::Schema.define(version: 20170319003729) do
 
-  create_table "alternatifs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "alternatifs", force: :cascade do |t|
     t.string   "nama_alternatif"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
-  create_table "kriteria", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "kriteria", force: :cascade do |t|
     t.string   "nama"
     t.integer  "tipe"
-    t.float    "bobot",      limit: 24
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.float    "bobot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "rangkings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "rangkings", force: :cascade do |t|
     t.integer  "alternatif_id"
     t.integer  "kriteria_id"
-    t.float    "nilai",         limit: 24
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.float    "nilai"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["alternatif_id"], name: "index_rangkings_on_alternatif_id", using: :btree
     t.index ["kriteria_id"], name: "index_rangkings_on_kriteria_id", using: :btree
   end

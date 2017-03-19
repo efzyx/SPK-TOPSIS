@@ -1,6 +1,6 @@
 class KriteriaController < ApplicationController
   before_action :set_kriterium, only: [:show, :edit, :update, :destroy]
-
+  before_action :cekData, only: [:index, :edit]
 
   def index
     @kriteria = Kriterium.all
@@ -57,5 +57,15 @@ class KriteriaController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def kriterium_params
       params.require(:kriterium).permit(:nama, :tipe, :bobot)
+    end
+    
+    def cekData
+      begin 
+        if Kriterium.first == nil
+          redirect_to error_path
+        end
+      rescue
+        redirect_to error_path
+      end
     end
 end
