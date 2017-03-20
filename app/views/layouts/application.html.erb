@@ -3,7 +3,7 @@
   <head>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag 'Chart.bundle' %>
-    <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+    <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,7 @@
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
+    <div class='clearfix'>
     <%= render 'layouts/header' %>
     <%= render 'layouts/sidebar' %>
 
@@ -31,6 +32,7 @@
     <%= render 'layouts/control-sidebar' %>
     <div class="control-sidebar-bg"></div>
   </div>
+</div>
   <!-- ./wrapper -->
 
     <%= javascript_include_tag 'application' %>

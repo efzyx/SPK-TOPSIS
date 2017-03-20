@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: Tugas_production
-  username: Tugas
+  database: new_tgs
+  username: root
   password: <%= ENV['TUGAS_DATABASE_PASSWORD'] %>
