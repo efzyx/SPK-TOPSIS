@@ -25,6 +25,7 @@ gem 'chartkick'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'adminlte-rails'
 source 'http://insecure.rails-assets.org/' do
   gem 'rails-assets-admin-lte'
