@@ -1,6 +1,8 @@
 class RangkingsController < ApplicationController
  before_action :set_rangking, only: [:show, :edit, :update, :destroy]
 
+ @currentAlt = nil
+ @currentKri = nil
 
  def index
    @rangkings = Rangking.all
@@ -10,17 +12,40 @@ class RangkingsController < ApplicationController
 
  def new
    @rangking = Rangking.new
+   @allRangkings = Rangking.all
+   @allAlternatifs = Alternatif.all
+   @allKriterias = Kriterium.all
+   @found = false
+   @allAlternatifs.each do |a|
+     if @allRangkings.exists?(alternatif_id: a.id) == true
+     @allKriterias.each do |k|
+       if @allRangkings.exists?(alternatif_id: a.id, kriteria_id: k.id) == false
+         @found = true
+         @currentAlt = a.id
+         @currentKri = k.id
+         break if @found == true
+       end
+     end
+     else
+       @found = true
+       @currentAlt = a.id
+       @currentKri = @allKriterias.first.id
+     end
+     break if @found == true
+   end
  end
 
  def edit
+   currentR = Rangking.find(params[:id])
+   @currentAlt = currentR.alternatif_id
+   @currentKri = currentR.kriteria_id
  end
 
  def create
    @rangking = Rangking.new(rangking_params)
-
    respond_to do |format|
      if @rangking.save
-       format.html { redirect_to new_rangking_path, notice: 'Rangking was successfully created.' }
+       format.html { redirect_to new_rangking_path, notice: 'Perangkingan berhasil disimpan, silahkan lengkapi rangking selanjutnya' }
        format.json { render :show, status: :created, location: @rangking }
      else
        format.html { render :new }

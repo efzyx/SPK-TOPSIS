@@ -9,13 +9,20 @@
 <% end %>
 <% @url = rangkings_url %>
 </section>
-
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
         <div class="box-body">
-        <%= render 'form', rangking: @rangking %>
+          <% if (Rangking.all.count < Alternatif.all.count * Kriterium.all.count) %>
+            <%= render 'form', rangking: @rangking %>
+          <% else %>
+          <div class="callout callout-info">
+            <h4>Selamat!</h4>
+
+            <p>Perangkingan sudah lengkap!</p>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
