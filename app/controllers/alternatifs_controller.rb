@@ -1,8 +1,7 @@
 class AlternatifsController < ApplicationController
   before_action :set_alternatif, only: [:show, :edit, :update, :destroy]
   before_action :cekData, only: [:index, :edit]
-  before_action :disableCRUD, only: [:new, :create, :edit, :update, :destroy]
-  
+
   def index
     @alternatifs = Alternatif.all
   end
@@ -59,9 +58,9 @@ class AlternatifsController < ApplicationController
     def alternatif_params
       params.require(:alternatif).permit(:nama_alternatif)
     end
-    
+
     def cekData
-      begin 
+      begin
         if Alternatif.first == nil
           redirect_to error_path
         end
@@ -69,7 +68,7 @@ class AlternatifsController < ApplicationController
         redirect_to error_path
       end
     end
-    
+
     def disableCRUD
       redirect_to alternatifs_url, notice: 'Read only mode, mohon maaf :D'
     end

@@ -37,8 +37,8 @@ class WelcomeController < ApplicationController
   private
 
     def cekData
-      begin 
-        if Alternatif.first == nil or Kriterium.first == nil or Rangking.first == nil then
+      begin
+        if Alternatif.first == nil or Kriterium.first == nil or Rangking.all.count != ( Kriterium.all.count * Alternatif.all.count) then
           redirect_to error_path
         end
       rescue
