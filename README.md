@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## INSTALL
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  - git clone `https://github.com/fauzipadlaw/spk-topsis.git`
+  - `cd spk-topsis && bundle install`
+  - configure database in `config/database.yml`
+  - run `rails db:create`
+  - run `rails db:migrate`
+  - run `rails db:seed`
+  - run `rails s`
+  - Open `localhost:3000` on your browser
